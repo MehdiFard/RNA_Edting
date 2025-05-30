@@ -51,21 +51,12 @@ def main(ratio_file, pcs=50):
 
     sys.stderr.write("Starting...\n")
     for i in range(1,23):
-        # fout[i] = open(ratio_file+".phen_chr%d"%i,'w')
-        # fout_ave = open(ratio_file+".ave",'w')
         fout[i] = open(f"{out_name}.phen_chr{i}", 'w') # Added by Me
         fout_ave = open(f"{out_name}.ave", 'w') # Added by Me
     valRows, valRowsnn, geneRows = [], [], []
     finished = False
     # Open the input file properly depending on .gz or not
     header = open(ratio_file).readline().split()[1:]
-    # if ratio_file.endswith(".gz"):
-    #     with gzip.open(ratio_file, 'rt') as f:
-    #         header = f.readline().split()[1:]
-    # else:
-    #     with open(ratio_file, 'r') as f:
-    #         header = f.readline().split()[1:]
-
 
     for i in fout:
         fout[i].write("\t".join(["#Chr","start", "end", "ID"]+header)+'\n')
@@ -95,7 +86,7 @@ def main(ratio_file, pcs=50):
                 aveReads.append(count)
 
 
-        # # If ratio is missing for over 40% of the samples, skip
+        # If ratio is missing for over 40% of the samples, skip
         if tmpvalRow.count("NA") > len(tmpvalRow)*0.4:
             continue
 
@@ -157,8 +148,6 @@ def main(ratio_file, pcs=50):
 
     for i in fout:
         fout[i].close()
-        # fout_run.write("bgzip -f %s.qqnorm_chr%d\n"%(ratio_file, i))
-        # fout_run.write("tabix -p bed %s.qqnorm_chr%d.gz\n"%(ratio_file, i))
         fout_run.write("bgzip -f %s.qqnorm_chr%d\n"%(out_name, i)) # Added by Me
         fout_run.write("tabix -p bed %s.qqnorm_chr%d.gz\n"%(out_name, i)) # Added by Me
     fout_run.close()

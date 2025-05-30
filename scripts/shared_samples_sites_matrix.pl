@@ -7,8 +7,6 @@ use Getopt::Long;
 use IO::Uncompress::Gunzip qw(gunzip $GunzipError);
 use Cwd;
 
-# Setting WD
-# chdir("/data/hps/assoc/private/gdml/user/sesmae/projects/RNA_Editing_projecet");
 
 # Defining variables to hold the arguments
 my ($path_edit_files, $output_dir, $tissue, $mincov, $minsamps);
@@ -60,7 +58,6 @@ foreach my $file (glob (join "", $path_edit_files, "*.rnaeditlevel.gz")) { # It 
 		next unless ($chr =~ /^chr([1-9]|1[0-9]|2[0-2])$/);
 
 		my $site = join ':', $chr, ($pos-1), $pos;
-		# my $site = join ':', $chr, $pos, ($pos+1); # Added by Me, to fix start and end pos in subsequent files to match with GTEx results
 		my $ratio = join '/', $edit, $cov;
 		if ($cov >= $mincov) {
 			$sitehash{$strain}{$site} = $ratio;

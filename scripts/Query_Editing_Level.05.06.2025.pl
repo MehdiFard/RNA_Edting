@@ -7,9 +7,6 @@ use Getopt::Long;
 use Cwd;
 require "./scripts/parse_pileup_query.pl"; # NEED PARSE PILEUP LIBRARY
 
-# # Setting WD
-# chdir("/data/hps/assoc/private/gdml/user/sesmae/projects/RNA_Editing_projecet");
-
 
 # Defining variables to hold the arguments
 my ($inputfile, $genomepath, $bamfile, $outputfile);
@@ -30,8 +27,6 @@ if ($outputfile =~ /\.gz$/) {$outputfile =~ s/\.gz$//;}; # Added by Me
 my $minbasequal = 20; # MINIMUM BASE QUALITY SCORE
 my $minmapqual = 255; # MINIMUM READ MAPPING QUALITY SCORE. 255 FOR UNIQUE MAPPING WITH STAR. ≥1 for reads mapped to less than 10 loci
 my $sampath = "samtools"; # PATH TO THE SAMTOOLS EXECUTABLE
-# my $genomepath = "src/Homo_sapiens_assembly38_noALT_noHLA_noDecoy.fasta"; # PATH TO REFERENCE GENOME
-# my $inputfile = "src/All.AG.stranded.annovar.Hg38_multianno.AnnoAlu.AnnoRep.NR.bed"; # PATH TO EDITING SITE LIST
 my $offset = 33; # BASE QUALITY SCORE OFFSET - 33 FOR SANGER SCALE, 64 FOR ILLUMINA SCALE
 
 ## END GLOBAL VARIABLES
