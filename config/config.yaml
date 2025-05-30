@@ -1,0 +1,21 @@
+# Path to annotaion file
+annotation_file: "src/bam_annotation.tsv"
+
+# Path to edit sites reference file
+edit_sites_bed: "src/All.AG.stranded.annovar.Hg38_multianno.AnnoAlu.AnnoRep.NR.bed"
+
+# Path to reference fasta file
+ref_genome_fasta: "src/Homo_sapiens_assembly38_noALT_noHLA_noDecoy.fasta"
+
+# Bam extension
+bam_extension: "Aligned.sortedByCoord.out.patched.md.bam"
+
+# Minimum coverage and samples required for a given site to be picked in final bed file
+min_coverage: 20
+min_samples: 60
+
+# Genotype qc thresholds
+maf_threshold: 0.05
+geno_threshold: 0.05
+hwe_threshold: 1e-6
+

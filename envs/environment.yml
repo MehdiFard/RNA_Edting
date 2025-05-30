@@ -1,0 +1,28 @@
+name: rna_editing_env
+channels:
+  - defaults
+  - r
+  - bioconda
+  - conda-forge
+  - dnachun
+dependencies:
+  - python=3.11.*
+  - snakemake
+  - dnachun::tensorqtl
+  - bioconda::bioconductor-qvalue
+  - samtools
+  - bamtools
+  - bcftools
+  - plink2
+  - perl
+  - r-data.table
+  - r-dplyr
+  - r-stringr
+  - bioconda::bioconductor-variantannotation
+  - bioconda::bioconductor-rtracklayer
+  - conda-forge::scikit-learn
+  - bioconda::bioconductor-genomicranges
+  - bioconda::bioconductor-impute
+  - conda-forge::r-argparse
+  - ipykernel
+  - conda-forge::fastparquet
